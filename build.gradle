@@ -1,33 +1,38 @@
+// https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#header 참고하기
+// buildscript는 task를 실행할때 필요한 기능을 import한다.
 buildscript{
-    ext {
+    ext { // 전역변수
         springBootVersion = '2.1.7.RELEASE'
     }
-    repositories {
+    repositories { // 사용할 저장소
         mavenCentral()
     }
-    dependencies{
+    dependencies{ // Task에서 사용할 의존성추가
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 
+// plugins는 gradle task의 집합이다. task는 build시 수행해야할 작업을 뜻한다.
+// https://kotlinworld.com/323 참고하기
 plugins { // (1)
-    id 'org.springframework.boot' version '2.4.1' // RELEASE 삭제
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE' 
     id 'java'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'org.example' // 그룹
+version '1.0-SNAPSHOT' // 버전
 
+// 사용할 원격 저장소
 repositories {
     mavenCentral()
 }
 
-
+// 개발과 테스트에 필요한 의존성을 내려받는다. (plugin과 다른점은 개발자에게 노출된다.)
+// https://docs.gradle.org/current/userguide/java_library_plugin.html 참고
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
