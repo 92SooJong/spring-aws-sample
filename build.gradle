@@ -33,6 +33,9 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
 
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa') // JPA사용을 위한 의존성
+    implementation('com.h2database:h2') // h2 DB 사용을 위한 의존성
+
     implementation('org.projectlombok:lombok')
     annotationProcessor 'org.projectlombok:lombok'
 
