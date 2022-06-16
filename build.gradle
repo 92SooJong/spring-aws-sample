@@ -32,20 +32,20 @@ repositories {
 // https://docs.gradle.org/current/userguide/java_library_plugin.html 참고
 dependencies {
 
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    implementation('org.springframework.boot:spring-boot-starter-data-jpa') // JPA사용을 위한 의존성
-    implementation('com.h2database:h2') // h2 DB 사용을 위한 의존성
+    implementation'org.springframework.boot:spring-boot-starter-web'
+    implementation'org.springframework.boot:spring-boot-starter-data-jpa' // JPA사용을 위한 의존성
+    implementation'com.h2database:h2' // h2 DB 사용을 위한 의존성
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     implementation 'org.springframework.session:spring-session-jdbc'
 
-    implementation('org.projectlombok:lombok')
+    implementation 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 
-
-    testImplementation('org.projectlombok:lombok')
+    testImplementation 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
